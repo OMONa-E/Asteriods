@@ -6,7 +6,8 @@ from constants import (
 
 def main():
 	pygame.init()
-	
+	clock = pygame.time.Clock()
+	dt = 0
 	screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 	while True:
 		for event in pygame.event.get():
@@ -14,6 +15,10 @@ def main():
 				return
 		pygame.Surface.fill(screen, (0,0,0)) # cover the display window with specified color here -- black
 		pygame.display.flip() # refresh the screen  -- .update() refresh entire or partial 
+		
+		get_tick = clock.tick(60)
+		dt = get_tick / 1000
+
 
 	print("Starting asteroids!")
 	print(f'Screen width: {SCREEN_WIDTH}')
